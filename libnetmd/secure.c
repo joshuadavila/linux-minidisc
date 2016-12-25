@@ -371,7 +371,7 @@ void netmd_transfer_song_packets(netmd_dev_handle *dev,
         memcpy(buf + 16, p->data, p->length);
 
         /* ... send it, timeout increased for larger files*/
-        error = libusb_bulk_transfer((libusb_device_handle*)dev, 2, packet, (int)packet_size, &transferred, 80000);
+        error = libusb_bulk_transfer((libusb_device_handle*)dev, 2, packet, (int)packet_size, &transferred, 240000);
         netmd_log(NETMD_LOG_DEBUG, "%d %d\n", packet_size, error);
 
         /* cleanup */
